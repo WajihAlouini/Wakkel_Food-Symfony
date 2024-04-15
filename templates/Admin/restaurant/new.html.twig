@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Restaurant{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Create new Restaurant</h1>
+
+            {# Display validation errors #}
+            {% if app.request.get('_route') == 'app_restaurant_new' %}
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            {# Display error messages if any #}
+            {% if form_errors(form) %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form_errors(form) %}
+                            <li>{{ error.message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {{ form_row(form.nomRestaurant, { 'attr': { 'class': 'form-control' } }) }}
+
+            {{ form_row(form.adresseRestaurant, { 'attr': { 'class': 'form-control' } }) }}
+
+            {{ form_row(form.restaurantImage, { 'attr': { 'class': 'form-control' } }) }}
+
+            {{ form_row(form.restaurantCategory, { 'attr': { 'class': 'form-select' } }) }}
+
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ path('app_restaurant_index') }}" class="btn btn-secondary mt-3">Back to list</a>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

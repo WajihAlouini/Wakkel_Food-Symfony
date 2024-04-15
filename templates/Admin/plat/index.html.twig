@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plat index{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .table img {
+            max-width: 100px; /* Adjust the maximum width as needed */
+            height: auto;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mb-4">Plats List</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Ingredients</th>
+                    <th>Logo</th>
+                    <th>Restaurant name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plat in plats %}
+                    <tr>
+                        <td>{{ plat.idPlat }}</td>
+                        <td>{{ plat.nomPlat }}</td>
+                        <td>{{ plat.prix }}</td>
+                        <td>{{ plat.ingredient }}</td>
+                        <td>
+                            {% if plat.platImage %}
+                                <img src="{{ asset('uploads/' ~ plat.platImage) }}" alt="Plat Image">
+                            {% else %}
+                                No image available
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if plat.restaurant %}
+                                {{ plat.restaurant.getNomRestaurant() }}
+                            {% else %}
+                                No restaurant associated
+                            {% endif %}
+                        </td>
+                        <td>
+                            <button onclick="window.location.href='{{ path('app_plat_edit', {'id': plat.idPlat}) }}'" class="btn btn-primary">Edit</button>
+                            {% include 'Admin/plat/_delete_form.html.twig' with {'id': plat.idPlat} %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7">No records found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a href="{{ path('app_plat_new') }}" class="btn btn-success">Create new</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Plat{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Create new Plat</h1>
+
+
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            {# Display general form errors if any #}
+            {% if form_errors(form) %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form_errors(form) %}
+                            <li>{{ error.message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            {{ form_row(form.Restaurant, {
+                'attr': {
+                    'oninvalid': "setCustomValidity('Please select a restaurant.')",
+                    'oninput': "setCustomValidity('')"
+                }
+            }) }}
+
+            {{ form_row(form.nomPlat) }}
+
+            {{ form_row(form.prix, {
+                'attr': {
+                    'oninvalid': "setCustomValidity('Please enter a valid price.')",
+                    'oninput': "setCustomValidity('')"
+                }
+            }) }}
+
+            {{ form_row(form.ingredient, {
+                'attr': {
+                    'oninvalid': "setCustomValidity('Please enter ingredients.')",
+                    'oninput': "setCustomValidity('')"
+                }
+            }) }}
+
+            {{ form_row(form.platImage, {
+                'attr': {
+                    'oninvalid': "setCustomValidity('Please upload a valid image (JPEG or PNG).')",
+                    'oninput': "setCustomValidity('')"
+                }
+            }) }}
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="{{ path('app_plat_index') }}" class="btn btn-secondary ml-2">Back to list</a>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

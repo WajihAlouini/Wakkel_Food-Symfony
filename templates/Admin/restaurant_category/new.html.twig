@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create New Restaurant Category{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Create New Restaurant Category</h1>
+
+            {{ form_start(form, { 'attr': { 'novalidate': 'novalidate' } }) }}
+
+            {# Display global errors #}
+            {% if form_errors(form) %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form_errors(form) %}
+                            <li>{{ error.message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <div class="mb-3">
+                {{ form_row(form.categoryName, { 'label': 'Category Name', 'attr': { 'class': 'form-control' } }) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_row(form.categoryImage, { 'label': 'Category Image', 'attr': { 'class': 'form-control' } }) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

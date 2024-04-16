@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Commande{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Create new Commande</h1>
+
+                {{ include('commande/_form.html.twig') }}
+
+                <div class="text-center">
+                    <a href="{{ path('app_commande_index') }}" class="btn btn-secondary">Back to list</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

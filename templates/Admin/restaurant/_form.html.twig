@@ -1,0 +1,18 @@
+{{ form_start(form) }}
+
+    {{ form_row(form.nomRestaurant) }}
+    {{ form_errors(form.nomRestaurant) }}
+
+    {{ form_row(form.adresseRestaurant) }}
+    {{ form_errors(form.adresseRestaurant) }}
+
+    {{ form_row(form.restaurantImage) }}
+    {{ form_errors(form.restaurantImage) }}
+
+    {{ form_row(form.restaurantCategory) }}
+    {{ form_errors(form.restaurantCategory) }}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}
+

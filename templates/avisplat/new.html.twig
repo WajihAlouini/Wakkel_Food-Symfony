@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Avisplat{% endblock %}
+
+{% block body %}
+    <h1>Create new Avisplat</h1>
+
+    {{ include('avisplat/_form.html.twig') }}
+
+    <a href="{{ path('app_avisplat_index') }}">back to list</a>
+{% endblock %}

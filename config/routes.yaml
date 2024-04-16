@@ -1,0 +1,39 @@
+app_restaurant_index:
+  path: /restaurant
+  controller: App\Controller\RestaurantController::index
+  methods: [GET]
+
+app_restaurant_new:
+  path: /restaurant/new
+  controller: App\Controller\RestaurantController::new
+  methods: [GET, POST]
+
+app_restaurant_show:
+  path: /restaurant/{id}
+  controller: App\Controller\RestaurantController::show
+  methods: [GET]
+
+app_restaurant_category_index:
+  path: /restaurant_category
+  controller: App\Controller\RestaurantCategoryController::index
+  methods: [GET]
+
+app_restaurant_category_edit:
+  path: /restaurant/category/{id}/edit
+  controller: App\Controller\RestaurantCategoryController::edit
+  methods: ['GET', 'POST']
+
+app_plat_index:
+  path: /plat
+  controller: App\Controller\PlatController::index
+  methods: [GET]
+
+app_plat_show:
+  path: /plat/{id}
+  controller: App\Controller\PlatController::show
+  methods: ['GET']
+
+app_plat_edit:
+  path: /plat/{id}/edit
+  controller: App\Controller\PlatController::edit
+  methods: ['GET', 'POST']

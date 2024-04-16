@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commande index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center">Commande Index</h1>
+
+                {% if commandes is not empty %}
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">IdCommande</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Prix</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for commande in commandes %}
+                                <tr>
+                                    <td>{{ commande.idCommande }}</td>
+                                    <td>{{ commande.statusCommande }}</td>
+                                    <td>{{ commande.prix }}</td>
+                                    <td>
+                                        <a href="{{ path('app_commande_show', {'idCommande': commande.idCommande}) }}" class="btn btn-sm btn-info">Show</a>
+                                        <a href="{{ path('app_commande_edit', {'idCommande': commande.idCommande}) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <div class="alert alert-info" role="alert">
+                        No records found.
+                    </div>
+                {% endif %}
+
+                <div class="text-center">
+                    <a href="{{ path('app_commande_new') }}" class="btn btn-primary">Create New Commande</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

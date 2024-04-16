@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avisplat index{% endblock %}
+
+{% block body %}
+    <h1>Avisplat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAvis</th>
+                <th>Commentaire</th>
+                <th>Note</th>
+                <th>DateAvis</th>
+                <th>Id_plat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avisplat in avisplats %}
+            <tr>
+                <td>{{ avisplat.idAvis }}</td>
+                <td>{{ avisplat.commentaire }}</td>
+                <td>{{ avisplat.note }}</td>
+                <td>{{ avisplat.dateAvis ? avisplat.dateAvis|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ avisplat.idPlat }}</td>
+                <td>
+                    <a href="{{ path('app_avisplat_show', {'idAvis': avisplat.idAvis}) }}">show</a>
+                    <a href="{{ path('app_avisplat_edit', {'idAvis': avisplat.idAvis}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_avisplat_new') }}">Create new</a>
+{% endblock %}

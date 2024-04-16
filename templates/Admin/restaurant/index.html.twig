@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurants List{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Restaurants List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Logo</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for restaurant in restaurants %}
+            <tr>
+                <td>{{ restaurant.idRestaurant }}</td>
+                <td>{{ restaurant.nomRestaurant }}</td>
+                <td>{{ restaurant.adresseRestaurant }}</td>
+                <td>
+                    <div style="max-width: 100px;">
+                        {% if restaurant.restaurantImage %}
+                            <img src="{{ asset('uploads/' ~ restaurant.restaurantImage) }}" alt="Restaurant Image" style="max-width: 100%; height: auto;">
+                        {% else %}
+                            No image available
+                        {% endif %}
+                    </div>
+                </td>
+                <td>{{ restaurant.restaurantCategory.getCategoryName() }}</td>
+                <td>
+                    <button onclick="window.location.href='{{ path('app_restaurant_edit', {'id': restaurant.idRestaurant}) }}'" class="btn btn-primary">Edit</button>
+                    {% include 'Admin/restaurant/_delete_form.html.twig' with {'id': restaurant.idRestaurant} %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">No records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_restaurant_new') }}">Create New</a>
+</div>
+{% endblock %}

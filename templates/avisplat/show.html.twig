@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avisplat{% endblock %}
+
+{% block body %}
+    <h1>Avisplat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdAvis</th>
+                <td>{{ avisplat.idAvis }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ avisplat.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ avisplat.note }}</td>
+            </tr>
+            <tr>
+                <th>DateAvis</th>
+                <td>{{ avisplat.dateAvis ? avisplat.dateAvis|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Id_plat</th>
+                <td>{{ avisplat.idPlat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_avisplat_index') }}">back to list</a>
+
+    <a href="{{ path('app_avisplat_edit', {'idAvis': avisplat.idAvis}) }}">edit</a>
+
+    {{ include('avisplat/_delete_form.html.twig') }}
+{% endblock %}

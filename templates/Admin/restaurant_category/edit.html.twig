@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit RestaurantCategory{% endblock %}
+
+{% block body %}
+<style>
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .button-container button,
+    .button-container a {
+        margin: 0 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Edit RestaurantCategory</h1>
+
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+            <div class="mb-3">
+                {{ form_row(form.categoryName, { 'attr': { 'class': 'form-control' } }) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_row(form.categoryImage, { 'label': 'Category Image', 'attr': { 'class': 'form-control' } }) }}
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{{ path('app_restaurant_category_index') }}" class="btn btn-secondary">Back to list</a>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

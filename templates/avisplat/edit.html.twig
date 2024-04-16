@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Avisplat{% endblock %}
+
+{% block body %}
+    <h1>Edit Avisplat</h1>
+
+    {{ include('avisplat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_avisplat_index') }}">back to list</a>
+
+    {{ include('avisplat/_delete_form.html.twig') }}
+{% endblock %}

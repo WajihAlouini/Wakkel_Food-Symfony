@@ -1,3 +1,55 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+app_back:
+  path: /back
+  controller: App\Controller\ClientController::back
+app_front:
+  path: /front
+  controller: App\Controller\ClientController::front
+app_main:
+  path: /Main
+  controller: App\Controller\MainController::index
+
+app_createaccount:
+  path: /create_account
+  controller: App\Controller\ClientController::createCompte
+app_authenticate:
+  path: /authenticate
+  controller: App\Controller\SecurityController::authenticate
+app_login:
+  path: /login
+  controller: App\Controller\SecurityController::login
+app_logout:
+  path: /logout
+  controller: App\Controller\SecurityController::logout
+app_forgotmdp:
+  path: /forgotmdp
+  controller: App\Controller\ClientController::forgotmdp
+app_search:
+  path: /search
+  controller: App\Controller\ClientController::search
+delete_client:
+  path: /client/delete/{id}
+  controller: App\Controller\ClientController::deleteClient
+edit_client:
+  path: /client/edit/{id}
+  controller: App\Controller\ClientController::editClient
+ban_client:
+  path: /client/ban/{id}
+  controller: App\Controller\ClientController::banClient
+unban_client:
+  path: /client/unban/{id}
+  controller: App\Controller\ClientController::unbanClient
+banned_Compte:
+  path: /bannedCompte
+  controller: App\Controller\ClientController::bannedCompte
+edit_c:
+  path: /edit
+  controller: App\Controller\ClientController::editc
+verif_mdp:
+  path: /verifmdp
+  controller: App\Controller\ClientController::verifmdp
+edit_privacy:
+  path: /editprivacy
+  controller: App\Controller\ClientController::editprivacy

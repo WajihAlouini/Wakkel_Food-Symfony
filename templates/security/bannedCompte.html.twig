@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wakkel Food</title>
+    <link rel="icon" href="{{asset('Main/img/LOGO_PNG.png')}}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #08335D; /* Définir la couleur de fond de la page */
+        }
+        .full-screen-image {
+            width: 80%;
+            height: 80%;
+            position: absolute; /* Définir la position absolue pour la superposition */
+            top: 50%; /* Placer l'image à 50% du haut */
+            left: 50%; /* Placer l'image à 50% du côté gauche */
+            transform: translate(-50%, -50%); /* Déplacer l'image de moitié de sa taille vers le haut et la gauche */        }
+        .second-image {
+            width: 1536px; /* Largeur de la deuxième image */
+            height: 684px; /* Hauteur de la deuxième image */
+            position: absolute; /* Définir la position absolue pour la superposition */
+            top: 50%; /* Placer l'image à 50% du haut */
+            left: 50%; /* Placer l'image à 50% du côté gauche */
+            transform: translate(-50%, -50%); /* Déplacer l'image de moitié de sa taille vers le haut et la gauche */
+        }
+    </style>
+</head>
+
+<body>
+    <img class="img-fluid full-screen-image" src="{{asset('Main/img/ban.png')}}" alt="">
+    <img class="img-fluid second-image" src="{{asset('Main/img/chaine.png')}}" alt="">
+</body>
+
+</html>

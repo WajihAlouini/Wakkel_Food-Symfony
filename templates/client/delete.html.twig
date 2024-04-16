@@ -1,0 +1,21 @@
+<tbody>
+    {% for client in clients %}
+        <tr>
+            <td>{{ client.getIdClient() }}</td>
+            <!-- Afficher d'autres propriétés de l'utilisateur -->
+            <td>
+                <div style="width: 92px;">
+                    <form style="display: inline-block"
+                          action="{{ path('delete_client', {id_client: client.id_client}) }}"
+                          method="post"
+                          data-confirmation="true">
+                        <input type="hidden" name="token" value="{{ csrf_token('delete') }}"/>
+                        <button type="submit" class="btn btn-icon waves-effect rounded-pill confirm-text m-lg-1">
+                            <i class="tf-icons text-danger ti ti-trash"></i>
+                        </button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+</tbody>

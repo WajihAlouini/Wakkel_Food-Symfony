@@ -1,0 +1,43 @@
+{% extends 'back&front/back.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">Edit User</div>
+                <div class="card-body">
+                {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    <div class="mb-3">
+                        {{ form_row(form.nom_c, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.prenom_c, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.email_c, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.mdp, {'attr': {'class': 'form-control', 'type': 'password'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.numero_c, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.adresse_c, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.genre, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

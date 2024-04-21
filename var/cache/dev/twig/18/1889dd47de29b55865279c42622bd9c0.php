@@ -240,6 +240,6 @@ class __TwigTemplate_0df37ac6f1a7efdb53cf2df31b881f0b extends Template
     </div>
 </div>
 {% endblock %}
-", "Admin/restaurant/edit.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\restaurant\\edit.html.twig");
+", "Admin/restaurant/edit.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\restaurant\\edit.html.twig");
     }
 }

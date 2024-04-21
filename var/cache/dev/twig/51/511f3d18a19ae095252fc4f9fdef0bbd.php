@@ -79,6 +79,6 @@ class __TwigTemplate_3079e68e5e355a2dff3410f5e058c1d7 extends Template
     <path d=\"M4 6v6a8 3 0 0 0 16 0v-6\"></path>
     <path d=\"M4 12v6a8 3 0 0 0 16 0v-6\"></path>
 </svg>
-", "@Doctrine/Collector/database.svg", "C:\\ReverseEngineering\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\database.svg");
+", "@Doctrine/Collector/database.svg", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\vendor\\doctrine\\doctrine-bundle\\templates\\Collector\\database.svg");
     }
 }

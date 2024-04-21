@@ -697,6 +697,6 @@ class __TwigTemplate_7fba7b35e81d3ffbb26aea9c2df5c0db extends Template
 {% block form_group_class -%}
     col-sm-10
 {%- endblock form_group_class %}
-", "bootstrap_5_horizontal_layout.html.twig", "C:\\ReverseEngineering\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_5_horizontal_layout.html.twig");
+", "bootstrap_5_horizontal_layout.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\bootstrap_5_horizontal_layout.html.twig");
     }
 }

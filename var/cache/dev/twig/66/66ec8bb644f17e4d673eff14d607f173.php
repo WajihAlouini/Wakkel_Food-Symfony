@@ -272,6 +272,6 @@ class __TwigTemplate_f085542728ea656c6d0bf7441f40a657 extends Template
         </div>
     </div>
 {% endblock %}
-", "Admin/restaurant_category/index.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\restaurant_category\\index.html.twig");
+", "Admin/restaurant_category/index.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\restaurant_category\\index.html.twig");
     }
 }

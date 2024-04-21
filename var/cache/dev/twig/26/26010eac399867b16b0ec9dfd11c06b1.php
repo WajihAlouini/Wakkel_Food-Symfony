@@ -351,6 +351,6 @@ class __TwigTemplate_3fbaa088419be47696d16279d25b09e6 extends Template
     </div>
 </div>
 {% endblock %}
-", "Admin/plat/index.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\plat\\index.html.twig");
+", "Admin/plat/index.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\plat\\index.html.twig");
     }
 }

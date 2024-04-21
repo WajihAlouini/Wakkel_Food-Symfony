@@ -10,9 +10,11 @@ return [
     'app_restaurant_category_new' => [[], ['_controller' => 'App\\Controller\\RestaurantCategoryController::new'], [], [['text', '/restaurant_category/new']], [], [], []],
     'app_restaurant_category_show' => [['idCategory'], ['_controller' => 'App\\Controller\\RestaurantCategoryController::show'], [], [['variable', '/', '[^/]++', 'idCategory', true], ['text', '/restaurant_category']], [], [], []],
     'app_restaurant_category_delete' => [['idCategory'], ['_controller' => 'App\\Controller\\RestaurantCategoryController::delete'], [], [['variable', '/', '[^/]++', 'idCategory', true], ['text', '/restaurant_category']], [], [], []],
+    'get_restaurants' => [[], ['_controller' => 'App\\Controller\\RestaurantCategoryController::getRestaurants'], [], [['text', '/restaurant_category/get_restaurants']], [], [], []],
     'restaurant_new' => [[], ['_controller' => 'App\\Controller\\RestaurantController::new'], [], [['text', '/restaurant/new']], [], [], []],
     'app_restaurant_edit' => [['id'], ['_controller' => 'App\\Controller\\RestaurantController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/restaurant']], [], [], []],
     'app_restaurant_delete' => [['id'], ['_controller' => 'App\\Controller\\RestaurantController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/restaurant']], [], [], []],
+    'restaurants_by_category' => [['idCategory'], ['_controller' => 'App\\Controller\\RestaurantController::restaurantsByCategory'], [], [['variable', '/', '[^/]++', 'idCategory', true], ['text', '/restaurant/restaurants/category']], [], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], [], []],
     '_wdt' => [['token'], ['_controller' => 'web_profiler.controller.profiler::toolbarAction'], [], [['variable', '/', '[^/]++', 'token', true], ['text', '/_wdt']], [], [], []],
     '_profiler_home' => [[], ['_controller' => 'web_profiler.controller.profiler::homeAction'], [], [['text', '/_profiler/']], [], [], []],
@@ -33,4 +35,5 @@ return [
     'app_plat_index' => [[], ['_controller' => 'App\\Controller\\PlatController::index'], [], [['text', '/plat']], [], [], []],
     'app_plat_show' => [['id'], ['_controller' => 'App\\Controller\\PlatController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/plat']], [], [], []],
     'app_plat_edit' => [['id'], ['_controller' => 'App\\Controller\\PlatController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/plat']], [], [], []],
+    'app_get_restaurants' => [['categoryId'], ['_controller' => 'App\\Controller\\RestaurantController::getRestaurants'], [], [['variable', '/', '[^/]++', 'categoryId', true], ['text', '/restaurants/category']], [], [], []],
 ];

@@ -20,6 +20,18 @@ class RestaurantRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Restaurant::class);
     }
+    public function findByCategory($categoryId)
+    {
+        return $this->createQueryBuilder('r')
+            ->join('r.restaurantCategory', 'c') // Assuming 'restaurantCategory' is the property name
+            ->andWhere('c.idCategory = :categoryId')
+            ->setParameter('categoryId', $categoryId)
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
 
 //    /**
 //     * @return Restaurant[] Returns an array of Restaurant objects

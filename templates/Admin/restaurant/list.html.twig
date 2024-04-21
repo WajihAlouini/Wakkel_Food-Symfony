@@ -1,0 +1,69 @@
+{% extends 'front.html.twig' %}
+
+{% block content %}
+    <!-- Category name and images -->
+    <div class="category-info">
+        <h1>{{ restaurantCategory.categoryName }}</h1>
+        <div class="category-images">
+            {% for image in restaurantCategory.categoryImage %}
+                <img src="{{ asset('uploads/' ~ image.filename) }}" alt="{{ image.alt }}">
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- List of restaurants -->
+    <div class="box-container">
+        {% for restaurant in restaurants %}
+            <div class="box">
+                <h3>{{ restaurant.nomRestaurant }}</h3>
+                <img src="{{ asset('uploads/' ~ restaurant.restaurantImage) }}" alt="{{ restaurant.nomRestaurant }} Image">
+                <p>Adresse: {{ restaurant.adresseRestaurant }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- CSS styles -->
+    <style>
+        /* CSS styles for the restaurant list page */
+        .category-info {
+            text-align: center;
+        }
+
+        .category-images {
+            margin-top: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .box {
+            background-color: #136F63; /* Dark background color */
+            color: #fff; /* Text color */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(0,0,0,.2);
+            transition: box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .box:hover {
+            box-shadow: 0 10px 15px rgba(0,0,0,.3);
+        }
+
+        .box img {
+            height: 120px; /* Increased height for the logo */
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #ccc; /* Text color for address */
+            font-size: 15px;
+            line-height: 1.8;
+        }
+    </style>
+{% endblock %}

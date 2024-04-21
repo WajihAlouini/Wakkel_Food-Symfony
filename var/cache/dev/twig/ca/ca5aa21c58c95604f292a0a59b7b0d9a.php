@@ -90,7 +90,7 @@ class __TwigTemplate_ffcee8ec666d1afa8355610d768f3a10 extends Template
         <div class=\"col-md-6\">
             <h1 class=\"text-center mb-4\">Create new Plat</h1>
 
-           
+
             ";
         // line 12
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
@@ -213,7 +213,7 @@ class __TwigTemplate_ffcee8ec666d1afa8355610d768f3a10 extends Template
         <div class=\"col-md-6\">
             <h1 class=\"text-center mb-4\">Create new Plat</h1>
 
-           
+
             {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
             {# Display general form errors if any #}
@@ -267,6 +267,6 @@ class __TwigTemplate_ffcee8ec666d1afa8355610d768f3a10 extends Template
     </div>
 </div>
 {% endblock %}
-", "Admin/plat/new.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\plat\\new.html.twig");
+", "Admin/plat/new.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\plat\\new.html.twig");
     }
 }

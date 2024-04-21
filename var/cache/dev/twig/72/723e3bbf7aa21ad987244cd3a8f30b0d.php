@@ -812,6 +812,6 @@ class __TwigTemplate_f4bee8c28c93a7c5f021ae7b552c1bd0 extends Template
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "C:\\ReverseEngineering\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
     }
 }

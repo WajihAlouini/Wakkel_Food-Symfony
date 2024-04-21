@@ -2255,6 +2255,6 @@ class __TwigTemplate_5b317990d1cdf7bc51af5405fb525af3 extends Template
       Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
     </div>
   </footer><!-- End Footer -->
-  {% endblock%}", "Admin/index.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\index.html.twig");
+  {% endblock%}", "Admin/index.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\index.html.twig");
     }
 }

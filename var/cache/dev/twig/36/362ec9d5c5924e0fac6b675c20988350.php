@@ -88,6 +88,6 @@ class __TwigTemplate_32c8bea23320bde14531520ad64a056d extends Template
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ plat.idPlat) }}\">
     <button class=\"btn\">Delete</button>
 </form>
-", "Admin/plat/_delete_form.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\plat\\_delete_form.html.twig");
+", "Admin/plat/_delete_form.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\plat\\_delete_form.html.twig");
     }
 }

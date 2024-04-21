@@ -97,14 +97,8 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
 </head>
 
 <body>
-    <div class=\"container-xxl bg-white p-0\">
-        <!-- Spinner Start -->
-        <div id=\"spinner\" class=\"show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center\">
-            <div class=\"spinner-border text-primary\" style=\"width: 3rem; height: 3rem;\" role=\"status\">
-                <span class=\"sr-only\">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+
+
 
 
         <!-- Navbar & Hero Start -->
@@ -113,7 +107,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
             <a href=\"\" class=\"navbar-brand p-0\">
             <h1 class=\"text-primary m-0\">
             <img src=\"";
-        // line 52
+        // line 46
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/LOGO_PNG.png"), "html", null, true);
         echo "\" alt=\"Logo\">Wakkel Food</h1>
             </a>
@@ -122,8 +116,8 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto py-0 pe-4\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Home</a>
-                        <a href=\"about.html\" class=\"nav-item nav-link\">About</a>
+                        <a href=\"/front\" class=\"nav-item nav-link active\">Home</a>
+                        <a href=\"/edit\" class=\"nav-item nav-link\">Compte</a>
                         <a href=\"service.html\" class=\"nav-item nav-link\">Service</a>
                         <a href=\"menu.html\" class=\"nav-item nav-link\">Menu</a>
                         <div class=\"nav-item dropdown\">
@@ -136,29 +130,61 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         </div>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Contact</a>
                     </div>
-                    <a href=\"/login\" class=\"btn btn-primary py-2 px-4\">Connexion</a>
+                    <a href=\"/login\" class=\"btn btn-primary py-2 px-4\">Deconnexion</a>
                 </div>
             </nav>
 
-            <div class=\"container-xxl py-5 bg-dark hero-header mb-5\">
-                <div class=\"container my-5 py-5\">
-                    <div class=\"row align-items-center g-5\">
-                        <div class=\"col-lg-6 text-center text-lg-start\">
-                            <h1 class=\"display-3 text-white animated slideInLeft\">Enjoy Our<br>Delicious Meal</h1>
-                            <p class=\"text-white animated slideInLeft mb-4 pb-2\">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                            <a href=\"\" class=\"btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft\">Book A Table</a>
-                        </div>
-                        <div class=\"col-lg-6 text-center text-lg-end overflow-hidden\">
-                            <img class=\"img-fluid\" src=\"";
-        // line 86
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/hero.png"), "html", null, true);
-        echo "\" alt=\"\">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar & Hero End -->
+       <!-- Menu Section -->
+       <div class=\"container-xxl py-5 bg-dark hero-header mb-5\" style=\"background-image;\">
+           <div class=\"container my-5 py-5\">
+               <div class=\"row\">
+                   <div class=\"col-md-12\">
+                       <div class=\"text-center wow fadeInUp\" data-wow-delay=\"0.1s\">
+                           <h5 class=\"section-title ff-secondary text-center text-primary fw-normal\">Food Menu</h5>
+                           <h1 class=\"mb-5 text-light\">Pick a restaurant Category</h1> <!-- Updated text color to light -->
+                       </div>
+                   </div>
+               </div>
+               <div class=\"row\">
+                   <!-- Iterate over restaurant categories -->
+                   ";
+        // line 84
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["restaurant_categories"]) || array_key_exists("restaurant_categories", $context) ? $context["restaurant_categories"] : (function () { throw new RuntimeError('Variable "restaurant_categories" does not exist.', 84, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["restaurantCategory"]) {
+            // line 85
+            echo "                   <div class=\"col-md-4 mb-4\">
+                       <div class=\"category-box text-center border rounded p-3\" style=\"background-color: #f0f0f0;\">
+                           <a href=\"";
+            // line 87
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("restaurants_by_category", ["idCategory" => twig_get_attribute($this->env, $this->source, $context["restaurantCategory"], "idCategory", [], "any", false, false, false, 87)]), "html", null, true);
+            echo "\" class=\"category-link\">
+                               <img src=\"";
+            // line 88
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["restaurantCategory"], "categoryImage", [], "any", false, false, false, 88))), "html", null, true);
+            echo "\" alt=\"Category Image\" class=\"img-fluid mb-3\" style=\"max-height: 150px;\">
+                               <h5 class=\"category-name\">";
+            // line 89
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["restaurantCategory"], "categoryName", [], "any", false, false, false, 89), "html", null, true);
+            echo "</h5>
+                           </a>
+                       </div>
+                   </div>
+                   ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['restaurantCategory'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 94
+        echo "               </div>
+       
+               <!-- Restaurant List Section -->
+               <div id=\"restaurant-list\" class=\"mt-5\">
+                   <!-- Restaurant list will be dynamically loaded here -->
+               </div>
+           </div>
+       </div>
+       <!-- Menu End -->
 
 
         <!-- Service Start -->
@@ -215,25 +241,25 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <div class=\"row g-3\">
                             <div class=\"col-6 text-start\">
                                 <img class=\"img-fluid rounded w-100 wow zoomIn\" data-wow-delay=\"0.1s\" src=\"";
-        // line 148
+        // line 158
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/about-1.jpg"), "html", null, true);
         echo "\">
                             </div>
                             <div class=\"col-6 text-start\">
                                 <img class=\"img-fluid rounded w-75 wow zoomIn\" data-wow-delay=\"0.3s\" src=\"";
-        // line 151
+        // line 161
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/about-2.jpg"), "html", null, true);
         echo "\" style=\"margin-top: 25%;\">
                             </div>
                             <div class=\"col-6 text-end\">
                                 <img class=\"img-fluid rounded w-75 wow zoomIn\" data-wow-delay=\"0.5s\" src=\"";
-        // line 154
+        // line 164
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/about-3.jpg"), "html", null, true);
         echo "\">
                             </div>
                             <div class=\"col-6 text-end\">
                                 <img class=\"img-fluid rounded w-100 wow zoomIn\" data-wow-delay=\"0.7s\" src=\"";
-        // line 157
+        // line 167
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/about-4.jpg"), "html", null, true);
         echo "\">
                             </div>
@@ -315,7 +341,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 236
+        // line 246
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-1.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -330,7 +356,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 248
+        // line 258
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-2.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -345,7 +371,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 260
+        // line 270
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-3.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -360,7 +386,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 272
+        // line 282
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-4.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -375,7 +401,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 284
+        // line 294
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-5.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -390,7 +416,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 296
+        // line 306
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-6.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -405,7 +431,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 308
+        // line 318
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-7.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -420,7 +446,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 320
+        // line 330
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-8.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -439,7 +465,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 336
+        // line 346
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-1.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -454,7 +480,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 348
+        // line 358
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-2.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -469,7 +495,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 360
+        // line 370
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-3.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -484,7 +510,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 372
+        // line 382
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-4.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -499,7 +525,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 384
+        // line 394
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-5.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -514,7 +540,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 396
+        // line 406
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-6.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -529,7 +555,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 408
+        // line 418
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-7.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -544,7 +570,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 420
+        // line 430
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-8.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -563,7 +589,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 436
+        // line 446
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-1.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -578,7 +604,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 448
+        // line 458
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-2.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -593,7 +619,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 460
+        // line 470
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-3.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -608,7 +634,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 472
+        // line 482
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-4.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -623,7 +649,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 484
+        // line 494
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-5.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -638,7 +664,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 496
+        // line 506
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-6.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -653,7 +679,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 508
+        // line 518
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-7.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -668,7 +694,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                                 <div class=\"col-lg-6\">
                                     <div class=\"d-flex align-items-center\">
                                         <img class=\"flex-shrink-0 img-fluid rounded\" src=\"";
-        // line 520
+        // line 530
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/menu-8.jpg"), "html", null, true);
         echo "\" alt=\"\" style=\"width: 80px;\">
                                         <div class=\"w-100 d-flex flex-column text-start ps-4\">
@@ -697,7 +723,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
         <!-- Utilisation du lecteur vidéo HTML5 -->
         <video controls width=\"100%\" height=\"auto\">
             <source src=\"";
-        // line 546
+        // line 556
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/monvideo.mp4"), "html", null, true);
         echo "\" type=\"video/mp4\">
             Your browser does not support the video tag.
@@ -787,7 +813,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <div class=\"team-item text-center rounded overflow-hidden\">
                             <div class=\"rounded-circle overflow-hidden m-4\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 633
+        // line 643
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/team-1.jpg"), "html", null, true);
         echo "\" alt=\"\">
                             </div>
@@ -804,7 +830,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <div class=\"team-item text-center rounded overflow-hidden\">
                             <div class=\"rounded-circle overflow-hidden m-4\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 647
+        // line 657
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/team-2.jpg"), "html", null, true);
         echo "\" alt=\"\">
                             </div>
@@ -821,7 +847,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <div class=\"team-item text-center rounded overflow-hidden\">
                             <div class=\"rounded-circle overflow-hidden m-4\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 661
+        // line 671
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/team-3.jpg"), "html", null, true);
         echo "\" alt=\"\">
                             </div>
@@ -838,7 +864,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <div class=\"team-item text-center rounded overflow-hidden\">
                             <div class=\"rounded-circle overflow-hidden m-4\">
                                 <img class=\"img-fluid\" src=\"";
-        // line 675
+        // line 685
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/team-4.jpg"), "html", null, true);
         echo "\" alt=\"\">
                             </div>
@@ -870,7 +896,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class=\"d-flex align-items-center\">
                             <img class=\"img-fluid flex-shrink-0 rounded-circle\" src=\"";
-        // line 704
+        // line 714
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/testimonial-1.jpg"), "html", null, true);
         echo "\" style=\"width: 50px; height: 50px;\">
                             <div class=\"ps-3\">
@@ -884,7 +910,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class=\"d-flex align-items-center\">
                             <img class=\"img-fluid flex-shrink-0 rounded-circle\" src=\"";
-        // line 715
+        // line 725
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/testimonial-2.jpg"), "html", null, true);
         echo "\" style=\"width: 50px; height: 50px;\">
                             <div class=\"ps-3\">
@@ -898,7 +924,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class=\"d-flex align-items-center\">
                             <img class=\"img-fluid flex-shrink-0 rounded-circle\" src=\"";
-        // line 726
+        // line 736
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/testimonial-3.jpg"), "html", null, true);
         echo "\" style=\"width: 50px; height: 50px;\">
                             <div class=\"ps-3\">
@@ -912,7 +938,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
                         <div class=\"d-flex align-items-center\">
                             <img class=\"img-fluid flex-shrink-0 rounded-circle\" src=\"";
-        // line 737
+        // line 747
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/img/testimonial-4.jpg"), "html", null, true);
         echo "\" style=\"width: 50px; height: 50px;\">
                             <div class=\"ps-3\">
@@ -1000,41 +1026,41 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
     <script src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>
     <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js\"></script>
     <script src=\"";
-        // line 822
+        // line 832
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/wow/wow.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 823
+        // line 833
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/easing/easing.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 824
+        // line 834
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/waypoints/waypoints.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 825
+        // line 835
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/counterup/counterup.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 826
+        // line 836
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/owlcarousel/owl.carousel.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 827
+        // line 837
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/tempusdominus/js/moment.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 828
+        // line 838
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/tempusdominus/js/moment-timezone.min.js"), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 829
+        // line 839
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"), "html", null, true);
         echo "\"></script>
 
     <!-- Template Javascript -->
     <script src=\"";
-        // line 832
+        // line 842
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("Main/js/main.js"), "html", null, true);
         echo "\"></script>
 </body>
@@ -1069,7 +1095,7 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  1038 => 832,  1032 => 829,  1028 => 828,  1024 => 827,  1020 => 826,  1016 => 825,  1012 => 824,  1008 => 823,  1004 => 822,  916 => 737,  902 => 726,  888 => 715,  874 => 704,  842 => 675,  825 => 661,  808 => 647,  791 => 633,  701 => 546,  672 => 520,  657 => 508,  642 => 496,  627 => 484,  612 => 472,  597 => 460,  582 => 448,  567 => 436,  548 => 420,  533 => 408,  518 => 396,  503 => 384,  488 => 372,  473 => 360,  458 => 348,  443 => 336,  424 => 320,  409 => 308,  394 => 296,  379 => 284,  364 => 272,  349 => 260,  334 => 248,  319 => 236,  237 => 157,  231 => 154,  225 => 151,  219 => 148,  154 => 86,  117 => 52,  95 => 33,  89 => 30,  83 => 27,  79 => 26,  75 => 25,  60 => 13,  54 => 10,  43 => 1,);
+        return array (  1064 => 842,  1058 => 839,  1054 => 838,  1050 => 837,  1046 => 836,  1042 => 835,  1038 => 834,  1034 => 833,  1030 => 832,  942 => 747,  928 => 736,  914 => 725,  900 => 714,  868 => 685,  851 => 671,  834 => 657,  817 => 643,  727 => 556,  698 => 530,  683 => 518,  668 => 506,  653 => 494,  638 => 482,  623 => 470,  608 => 458,  593 => 446,  574 => 430,  559 => 418,  544 => 406,  529 => 394,  514 => 382,  499 => 370,  484 => 358,  469 => 346,  450 => 330,  435 => 318,  420 => 306,  405 => 294,  390 => 282,  375 => 270,  360 => 258,  345 => 246,  263 => 167,  257 => 164,  251 => 161,  245 => 158,  179 => 94,  168 => 89,  164 => 88,  160 => 87,  156 => 85,  152 => 84,  111 => 46,  95 => 33,  89 => 30,  83 => 27,  79 => 26,  75 => 25,  60 => 13,  54 => 10,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -1110,14 +1136,8 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
 </head>
 
 <body>
-    <div class=\"container-xxl bg-white p-0\">
-        <!-- Spinner Start -->
-        <div id=\"spinner\" class=\"show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center\">
-            <div class=\"spinner-border text-primary\" style=\"width: 3rem; height: 3rem;\" role=\"status\">
-                <span class=\"sr-only\">Loading...</span>
-            </div>
-        </div>
-        <!-- Spinner End -->
+
+
 
 
         <!-- Navbar & Hero Start -->
@@ -1132,8 +1152,8 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                 </button>
                 <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
                     <div class=\"navbar-nav ms-auto py-0 pe-4\">
-                        <a href=\"index.html\" class=\"nav-item nav-link active\">Home</a>
-                        <a href=\"about.html\" class=\"nav-item nav-link\">About</a>
+                        <a href=\"/front\" class=\"nav-item nav-link active\">Home</a>
+                        <a href=\"/edit\" class=\"nav-item nav-link\">Compte</a>
                         <a href=\"service.html\" class=\"nav-item nav-link\">Service</a>
                         <a href=\"menu.html\" class=\"nav-item nav-link\">Menu</a>
                         <div class=\"nav-item dropdown\">
@@ -1146,26 +1166,42 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
                         </div>
                         <a href=\"contact.html\" class=\"nav-item nav-link\">Contact</a>
                     </div>
-                    <a href=\"/login\" class=\"btn btn-primary py-2 px-4\">Connexion</a>
+                    <a href=\"/login\" class=\"btn btn-primary py-2 px-4\">Deconnexion</a>
                 </div>
             </nav>
 
-            <div class=\"container-xxl py-5 bg-dark hero-header mb-5\">
-                <div class=\"container my-5 py-5\">
-                    <div class=\"row align-items-center g-5\">
-                        <div class=\"col-lg-6 text-center text-lg-start\">
-                            <h1 class=\"display-3 text-white animated slideInLeft\">Enjoy Our<br>Delicious Meal</h1>
-                            <p class=\"text-white animated slideInLeft mb-4 pb-2\">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                            <a href=\"\" class=\"btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft\">Book A Table</a>
-                        </div>
-                        <div class=\"col-lg-6 text-center text-lg-end overflow-hidden\">
-                            <img class=\"img-fluid\" src=\"{{asset('Main/img/hero.png')}}\" alt=\"\">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar & Hero End -->
+       <!-- Menu Section -->
+       <div class=\"container-xxl py-5 bg-dark hero-header mb-5\" style=\"background-image;\">
+           <div class=\"container my-5 py-5\">
+               <div class=\"row\">
+                   <div class=\"col-md-12\">
+                       <div class=\"text-center wow fadeInUp\" data-wow-delay=\"0.1s\">
+                           <h5 class=\"section-title ff-secondary text-center text-primary fw-normal\">Food Menu</h5>
+                           <h1 class=\"mb-5 text-light\">Pick a restaurant Category</h1> <!-- Updated text color to light -->
+                       </div>
+                   </div>
+               </div>
+               <div class=\"row\">
+                   <!-- Iterate over restaurant categories -->
+                   {% for restaurantCategory in restaurant_categories %}
+                   <div class=\"col-md-4 mb-4\">
+                       <div class=\"category-box text-center border rounded p-3\" style=\"background-color: #f0f0f0;\">
+                           <a href=\"{{ path('restaurants_by_category', {'idCategory': restaurantCategory.idCategory}) }}\" class=\"category-link\">
+                               <img src=\"{{ asset('uploads/' ~ restaurantCategory.categoryImage) }}\" alt=\"Category Image\" class=\"img-fluid mb-3\" style=\"max-height: 150px;\">
+                               <h5 class=\"category-name\">{{ restaurantCategory.categoryName }}</h5>
+                           </a>
+                       </div>
+                   </div>
+                   {% endfor %}
+               </div>
+       
+               <!-- Restaurant List Section -->
+               <div id=\"restaurant-list\" class=\"mt-5\">
+                   <!-- Restaurant list will be dynamically loaded here -->
+               </div>
+           </div>
+       </div>
+       <!-- Menu End -->
 
 
         <!-- Service Start -->
@@ -1908,6 +1944,6 @@ class __TwigTemplate_bf993dfdf25daf4599e4ff5150ce6d1d extends Template
     <script src=\"{{asset('Main/js/main.js')}}\"></script>
 </body>
 
-</html>", "index.html.twig", "C:\\ReverseEngineering\\templates\\index.html.twig");
+</html>", "index.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\index.html.twig");
     }
 }

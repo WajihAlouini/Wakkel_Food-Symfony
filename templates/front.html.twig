@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome to Our Restaurant{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link href="{{asset('Main/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('public/styles.css')}}" rel="stylesheet">
+
+    <link href="{{asset('Main/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('Main/lib/animate/animate.min.css')}}" rel="stylesheet">
+        <link href="{{asset('Main/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="{{asset('Main/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body
+
+    <div class="container-xxl bg-white p-0">
+
+<!-- Navbar & Hero Start -->
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+        <a href="" class="navbar-brand p-0">
+            <h1 class="text-primary m-0">
+                <img src="{{ asset('Main/img/LOGO_PNG.png') }}" alt="Logo">Wakkel Food
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+                <a href="/front" class="nav-item nav-link active">Home</a>
+                <a href="/edit" class="nav-item nav-link">Compte</a>
+                <a href="service.html" class="nav-item nav-link">Service</a>
+                <a href="menu.html" class="nav-item nav-link">Menu</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="booking.html" class="dropdown-item">Booking</a>
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="/login" class="btn btn-primary py-2 px-4">Deconnexion</a>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container mt-5">
+        {% block content %}{% endblock %}
+    </div>
+    <!-- End Page Content -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

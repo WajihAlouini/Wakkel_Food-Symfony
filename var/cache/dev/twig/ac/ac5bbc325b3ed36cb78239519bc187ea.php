@@ -286,6 +286,6 @@ class __TwigTemplate_d9ef445cbf8a138206839f0cc97351a9 extends Template
     {% set attr = attr|merge({class: (attr.class|default('') ~ ' button')|trim}) %}
     {{- parent() -}}
 {%- endblock button_widget %}
-", "foundation_6_layout.html.twig", "C:\\ReverseEngineering\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\foundation_6_layout.html.twig");
+", "foundation_6_layout.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\vendor\\symfony\\twig-bridge\\Resources\\views\\Form\\foundation_6_layout.html.twig");
     }
 }

@@ -37,3 +37,8 @@ app_plat_edit:
   path: /plat/{id}/edit
   controller: App\Controller\PlatController::edit
   methods: ['GET', 'POST']
+
+app_get_restaurants:
+  path: '/restaurants/category/{categoryId}'
+  controller: App\Controller\RestaurantController::getRestaurants
+  methods: [GET]

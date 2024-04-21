@@ -1260,6 +1260,6 @@ class __TwigTemplate_a1a8719410c4573e6b39da2728386f2d extends Template
         </footer><!-- End Footer -->
     {% endblock %}
     </body>
-</html>", "base.html.twig", "C:\\ReverseEngineering\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\base.html.twig");
     }
 }

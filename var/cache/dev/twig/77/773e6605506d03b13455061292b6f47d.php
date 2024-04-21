@@ -282,6 +282,6 @@ class __TwigTemplate_4d25fe3a37cc36f4182291d3bbd13e2c extends Template
     <a href=\"{{ path('app_restaurant_new') }}\">Create New</a>
 </div>
 {% endblock %}
-", "Admin/restaurant/index.html.twig", "C:\\ReverseEngineering\\templates\\Admin\\restaurant\\index.html.twig");
+", "Admin/restaurant/index.html.twig", "C:\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\Admin\\restaurant\\index.html.twig");
     }
 }

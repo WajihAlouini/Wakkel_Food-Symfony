@@ -32,32 +32,37 @@ return [
                     .'|(*:53)'
                 .')'
                 .'|/restaurant(?'
-                    .'|_category/([^/]++)(?'
-                        .'|(*:96)'
+                    .'|_category/(?'
+                        .'|([^/]++)(?'
+                            .'|(*:99)'
+                        .')'
+                        .'|get_restaurants(*:122)'
                     .')'
                     .'|/(?'
                         .'|([^/]++)(?'
-                            .'|/edit(*:124)'
-                            .'|(*:132)'
+                            .'|/edit(*:151)'
+                            .'|(*:159)'
                         .')'
-                        .'|new(*:144)'
-                        .'|([^/]++)(*:160)'
-                        .'|category/([^/]++)/edit(*:190)'
+                        .'|restaurants/category/([^/]++)(*:197)'
+                        .'|new(*:208)'
+                        .'|([^/]++)(*:224)'
+                        .'|category/([^/]++)/edit(*:254)'
                     .')'
+                    .'|s/category/([^/]++)(*:282)'
                 .')'
                 .'|/_(?'
-                    .'|error/(\\d+)(?:\\.([^/]++))?(*:231)'
-                    .'|wdt/([^/]++)(*:251)'
+                    .'|error/(\\d+)(?:\\.([^/]++))?(*:322)'
+                    .'|wdt/([^/]++)(*:342)'
                     .'|profiler/([^/]++)(?'
                         .'|/(?'
-                            .'|search/results(*:297)'
-                            .'|router(*:311)'
+                            .'|search/results(*:388)'
+                            .'|router(*:402)'
                             .'|exception(?'
-                                .'|(*:331)'
-                                .'|\\.css(*:344)'
+                                .'|(*:422)'
+                                .'|\\.css(*:435)'
                             .')'
                         .')'
-                        .'|(*:354)'
+                        .'|(*:445)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -66,22 +71,25 @@ return [
         34 => [[['_route' => 'app_plat_delete', '_controller' => 'App\\Controller\\PlatController::delete'], ['idPlat'], ['POST' => 0], null, false, false, null]],
         45 => [[['_route' => 'app_plat_edit', '_controller' => 'App\\Controller\\PlatController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         53 => [[['_route' => 'app_plat_show', '_controller' => 'App\\Controller\\PlatController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        96 => [
+        99 => [
             [['_route' => 'app_restaurant_category_show', '_controller' => 'App\\Controller\\RestaurantCategoryController::show'], ['idCategory'], ['GET' => 0], null, false, true, null],
             [['_route' => 'app_restaurant_category_delete', '_controller' => 'App\\Controller\\RestaurantCategoryController::delete'], ['idCategory'], ['POST' => 0], null, false, true, null],
         ],
-        124 => [[['_route' => 'app_restaurant_edit', '_controller' => 'App\\Controller\\RestaurantController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        132 => [[['_route' => 'app_restaurant_delete', '_controller' => 'App\\Controller\\RestaurantController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        144 => [[['_route' => 'app_restaurant_new', '_controller' => 'App\\Controller\\RestaurantController::new'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        160 => [[['_route' => 'app_restaurant_show', '_controller' => 'App\\Controller\\RestaurantController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        190 => [[['_route' => 'app_restaurant_category_edit', '_controller' => 'App\\Controller\\RestaurantCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        231 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
-        251 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
-        297 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
-        311 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
-        331 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
-        344 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        354 => [
+        122 => [[['_route' => 'get_restaurants', '_controller' => 'App\\Controller\\RestaurantCategoryController::getRestaurants'], [], null, null, false, false, null]],
+        151 => [[['_route' => 'app_restaurant_edit', '_controller' => 'App\\Controller\\RestaurantController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        159 => [[['_route' => 'app_restaurant_delete', '_controller' => 'App\\Controller\\RestaurantController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        197 => [[['_route' => 'restaurants_by_category', '_controller' => 'App\\Controller\\RestaurantController::restaurantsByCategory'], ['idCategory'], null, null, false, true, null]],
+        208 => [[['_route' => 'app_restaurant_new', '_controller' => 'App\\Controller\\RestaurantController::new'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        224 => [[['_route' => 'app_restaurant_show', '_controller' => 'App\\Controller\\RestaurantController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        254 => [[['_route' => 'app_restaurant_category_edit', '_controller' => 'App\\Controller\\RestaurantCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        282 => [[['_route' => 'app_get_restaurants', '_controller' => 'App\\Controller\\RestaurantController::getRestaurants'], ['categoryId'], ['GET' => 0], null, false, true, null]],
+        322 => [[['_route' => '_preview_error', '_controller' => 'error_controller::preview', '_format' => 'html'], ['code', '_format'], null, null, false, true, null]],
+        342 => [[['_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'], ['token'], null, null, false, true, null]],
+        388 => [[['_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'], ['token'], null, null, false, false, null]],
+        402 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
+        422 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
+        435 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
+        445 => [
             [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

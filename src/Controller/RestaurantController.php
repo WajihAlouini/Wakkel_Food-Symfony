@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\Restaurant;
 use App\Entity\RestaurantCategory;
 use App\Form\RestaurantType;
+use App\Repository\RestaurantCategoryRepository;
 use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -86,4 +88,22 @@ class RestaurantController extends AbstractController
 
         return $this->redirectToRoute('app_restaurant_index');
     }
+    #[Route('/restaurants/category/{idCategory}', name: 'restaurants_by_category')]
+    public function restaurantsByCategory($idCategory, RestaurantRepository $restaurantRepository, RestaurantCategoryRepository $restaurantCategoryRepository): Response
+    {
+        // Retrieve the restaurants associated with the given category ID
+        $restaurants = $restaurantRepository->findByCategory($idCategory);
+
+        // Retrieve the RestaurantCategory object associated with the given category ID
+        $restaurant_categories = $restaurantCategoryRepository->find($idCategory);
+
+        // Render the list.html.twig template with the restaurants data and RestaurantCategory object
+        return $this->render('admin/restaurant/list.html.twig', [
+            'restaurants' => $restaurants,
+            'restaurantCategory' => $restaurant_categories,
+        ]);
+    }
+
+
+
 }

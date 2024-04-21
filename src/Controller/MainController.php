@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\RestaurantCategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +12,14 @@ class MainController extends AbstractController
     /**
      * @Route("/Main", name="index")
      */
-    public function index(): Response
+    public function index(RestaurantCategoryRepository $restaurantCategoryRepository): Response
     {
-        return $this->render('index.html.twig');
+        // Retrieve all restaurant categories
+        $restaurantCategories = $restaurantCategoryRepository->findAll();
+
+        return $this->render('index.html.twig', [
+            'restaurant_categories' => $restaurantCategories,
+        ]);
     }
 
     /**

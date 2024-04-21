@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\RestaurantCategory;
 use App\Form\RestaurantCategoryType;
 use App\Repository\RestaurantCategoryRepository;
+use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -77,5 +79,28 @@ class RestaurantCategoryController extends AbstractController
         }
 
         return $this->redirectToRoute('app_restaurant_category_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/get_restaurants', name: 'get_restaurants')]
+    public function getRestaurants(Request $request, RestaurantRepository $restaurantRepository): JsonResponse
+    {
+        // Get the category ID from the request parameters
+        $categoryId = $request->query->get('id_category');
+
+        // Retrieve the list of restaurants associated with the category ID
+        $restaurants = $restaurantRepository->findByCategory($categoryId);
+
+        // Transform the list of restaurants into an array of data
+        $restaurantsData = [];
+        foreach ($restaurants as $restaurant) {
+            $restaurantsData[] = [
+                'Nom' => $restaurant->getNomRestaurant(),
+                'Adresse' => $restaurant->getAdresseRestaurant(),
+                'Logo' => $restaurant->getRestaurantImage(),
+                // Add other restaurant properties as needed
+            ];
+        }
+
+        // Return the list of restaurants as JSON response
+        return $this->json($restaurantsData);
     }
 }

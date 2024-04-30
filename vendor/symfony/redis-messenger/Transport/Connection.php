@@ -304,7 +304,7 @@ class Connection
         try {
             // This could soon be optimized with https://github.com/antirez/redis/issues/5212 or
             // https://github.com/antirez/redis/issues/6256
-            $pendingMessages = $this->connection->xpending($this->stream, $this->group, '-', '+', 1);
+            $pendingMessages = $this->connection->xpending($this->stream, $this->group, '-', '+', 1) ?: [];
         } catch (\RedisException $e) {
             throw new TransportException($e->getMessage(), 0, $e);
         }
@@ -389,6 +389,7 @@ class Connection
                 $this->group,
                 $this->consumer,
                 [$this->stream => $messageId],
+                1,
                 1
             );
         } catch (\RedisException $e) {

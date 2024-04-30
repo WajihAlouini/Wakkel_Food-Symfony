@@ -3,6 +3,11 @@
 {% block title %}Commande{% endblock %}
 
 {% block body %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -29,6 +34,8 @@
                     <a href="{{ path('app_commande_index') }}" class="btn btn-secondary">Back to list</a>
 
                     <a href="{{ path('app_commande_edit', {'idCommande': commande.idCommande}) }}" class="btn btn-primary">Edit</a>
+                    <a href="{{ path('generateCommandePdf', {'idCommande': commande.idCommande}) }}" class="btn btn-success">Generate PDF</a>
+
                 </div>
 
                 {{ include('commande/_delete_form.html.twig') }}

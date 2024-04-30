@@ -22,13 +22,13 @@ class Commande
     private $idCommande;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="statusCommande", type="integer", nullable=false)
-     * @Assert\NotBlank(message="Le statut de la commande ne peut pas être vide.")
-     * @Assert\Choice(choices={0, 1, 2}, message="Le statut de la commande doit être 0, 1 ou 2.")
-     */
-    private $statusCommande;
+ * @var string
+ *
+ * @ORM\Column(name="statusCommande", type="string", length=255, nullable=false)
+ * @Assert\NotBlank(message="Le statut de la commande ne peut pas être vide.")
+ * @Assert\Choice(choices={"Annule", "enCours", "effectue"}, message="Le statut de la commande doit être Annule, enCours ou effectue.")
+ */
+private $statusCommande;
 
     /**
      * @var int
@@ -46,12 +46,12 @@ class Commande
         return $this->idCommande;
     }
 
-    public function getStatusCommande(): ?int
-    {
-        return $this->statusCommande;
-    }
+    public function getStatusCommande(): ?string
+{
+    return $this->statusCommande;
+}
 
-    public function setStatusCommande(int $statusCommande): static
+    public function setStatusCommande(string $statusCommande): static
     {
         $this->statusCommande = $statusCommande;
 

@@ -1,25 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Commande index{% endblock %}
+{% block title %}Table des commandes{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="text-center">Commande Index</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">Table des commandes</h1>
 
-                {% if commandes is not empty %}
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">IdCommande</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Prix</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for commande in commandes %}
+            <div class="card">
+                <div class="card-body">
+                    {% if pagination.getTotalItemCount() > 0 %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'idCommande', 'orderDirection': 'asc'}) }}" class="btn btn-sm btn-info">IdCommande ▲</a>
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'idCommande', 'orderDirection': 'desc'}) }}" class="btn btn-sm btn-info">IdCommande ▼</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'statusCommande', 'orderDirection': 'asc'}) }}" class="btn btn-sm btn-info">Status ▲</a>
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'statusCommande', 'orderDirection': 'desc'}) }}" class="btn btn-sm btn-info">Status ▼</a>
+                                    </th>
+                                    <th scope="col">
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'prix', 'orderDirection': 'asc'}) }}" class="btn btn-sm btn-info">Prix ▲</a>
+                                        <a href="{{ path('app_commande_index', {'orderBy': 'prix', 'orderDirection': 'desc'}) }}" class="btn btn-sm btn-info">Prix ▼</a>
+                                    </th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for commande in pagination %}
                                 <tr>
                                     <td>{{ commande.idCommande }}</td>
                                     <td>{{ commande.statusCommande }}</td>
@@ -29,19 +46,33 @@
                                         <a href="{{ path('app_commande_edit', {'idCommande': commande.idCommande}) }}" class="btn btn-sm btn-primary">Edit</a>
                                     </td>
                                 </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                {% else %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {# Affichage de la pagination #}
+                    <div class="d-flex justify-content-center mt-3">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    {% else %}
                     <div class="alert alert-info" role="alert">
                         No records found.
                     </div>
-                {% endif %}
-
-                <div class="text-center">
-                    <a href="{{ path('app_commande_new') }}" class="btn btn-primary">Create New Commande</a>
+                    {% endif %}
                 </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="{{ path('app_commande_new') }}" class="btn btn-primary">Créer commande</a>
+                <a href="{{ path('app_statistics') }}" class="btn btn-primary">Statistiques</a>
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+
 {% endblock %}

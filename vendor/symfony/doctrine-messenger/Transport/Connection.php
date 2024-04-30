@@ -161,6 +161,10 @@ class Connection implements ResetInterface
                 $this->driverConnection->delete($this->configuration['table_name'], ['delivered_at' => '9999-12-31 23:59:59']);
             } catch (DriverException $e) {
                 // Ignore the exception
+            } catch (TableNotFoundException $e) {
+                if ($this->autoSetup) {
+                    $this->setup();
+                }
             }
         }
 
@@ -285,7 +289,7 @@ class Connection implements ResetInterface
     {
         $configuration = $this->driverConnection->getConfiguration();
         $assetFilter = $configuration->getSchemaAssetsFilter();
-        $configuration->setSchemaAssetsFilter(static function () { return true; });
+        $configuration->setSchemaAssetsFilter(function (string $tableName) { return $tableName === $this->configuration['table_name']; });
         $this->updateSchema();
         $configuration->setSchemaAssetsFilter($assetFilter);
         $this->autoSetup = false;

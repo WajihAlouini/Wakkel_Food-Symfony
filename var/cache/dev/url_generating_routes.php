@@ -4,10 +4,12 @@
 
 return [
     'app_commande_index' => [[], ['_controller' => 'App\\Controller\\CommandeController::index'], [], [['text', '/commande/']], [], [], []],
+    'app_statistics' => [[], ['_controller' => 'App\\Controller\\CommandeController::statistics'], [], [['text', '/commande/statistics']], [], [], []],
     'app_commande_new' => [[], ['_controller' => 'App\\Controller\\CommandeController::new'], [], [['text', '/commande/new']], [], [], []],
     'app_commande_show' => [['idCommande'], ['_controller' => 'App\\Controller\\CommandeController::show'], [], [['variable', '/', '[^/]++', 'idCommande', true], ['text', '/commande']], [], [], []],
     'app_commande_edit' => [['idCommande'], ['_controller' => 'App\\Controller\\CommandeController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'idCommande', true], ['text', '/commande']], [], [], []],
     'app_commande_delete' => [['idCommande'], ['_controller' => 'App\\Controller\\CommandeController::delete'], [], [['variable', '/', '[^/]++', 'idCommande', true], ['text', '/commande']], [], [], []],
+    'generateCommandePdf' => [['idCommande'], ['_controller' => 'App\\Controller\\CommandeController::generateCommandePdf'], [], [['variable', '/', '[^/]++', 'idCommande', true], ['text', '/commande/generateCommandePdf']], [], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/Main']], [], [], []],
     'display_admin' => [[], ['_controller' => 'App\\Controller\\MainController::indexAdmin'], [], [['text', '/admin']], [], [], []],
     'app_plat_new' => [[], ['_controller' => 'App\\Controller\\PlatController::new'], [], [['text', '/plat/new']], [], [], []],

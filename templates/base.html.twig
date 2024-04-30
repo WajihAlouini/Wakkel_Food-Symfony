@@ -54,12 +54,22 @@
                     <i class="bi bi-list toggle-sidebar-btn"></i>
                 </div><!-- End Logo -->
 
-                <div class="search-bar">
-                    <form class="search-form d-flex align-items-center" method="POST" action="#">
-                        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-                    </form>
-                </div><!-- End Search Bar -->
+                <div class="col-md-6 mb-3">
+                    <input type="text" id="inputSearch" class="form-control" placeholder="Rechercher dans la table...">
+                </div>
+                <div class="col-md-6 mb-3 d-flex justify-content-end align-items-center">
+                    <div class="me-3">
+                        <select id="selectTri" class="form-select">
+                            <option value="1">Trier par Réclamation</option>
+                            <option value="2">Trier par Nom du Client</option>
+                            <option value="3">Trier par Réponse</option>
+                            <option value="4">Trier par Date du réponse</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button onclick="trierAvancee()" class="btn btn-primary">Trier</button>
+                    </div>
+                </div>
 
                 <nav class="header-nav ms-auto">
                     <ul class="d-flex align-items-center">
@@ -281,7 +291,7 @@
                     <li class="nav-item">
                         <a class="nav-link " href="index.html">
                             <i class="bi bi-grid"></i>
-                            <span>Gestion des blogs</span>
+                            <span>Gestion des commandes</span>
                         </a>
                     </li><!-- End Dashboard Nav -->
 
@@ -480,5 +490,33 @@
             </div>
         </footer><!-- End Footer -->
     {% endblock %}
+    <script>
+        // Fonction de recherche automatique avancée
+        function rechercherAvancee() {
+            var inputSearch = document.getElementById('inputSearch').value.trim().toLowerCase();
+            var table = document.querySelector('.table');
+            var tbody = table.querySelector('tbody');
+            var rows = tbody.querySelectorAll('tr');
+    
+            rows.forEach(row => {
+                var found = false;
+                row.querySelectorAll('td').forEach(cell => {
+                    var text = cell.textContent.trim().toLowerCase();
+                    if (text.includes(inputSearch)) {
+                        found = true;
+                    }
+                });
+                if (found) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    
+        // Écoute de l'événement d'entrée dans le champ de recherche
+        document.getElementById('inputSearch').addEventListener('input', rechercherAvancee);
+    </script>
+    
     </body>
 </html>

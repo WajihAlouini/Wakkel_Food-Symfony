@@ -20,6 +20,16 @@ class RestaurantCategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, RestaurantCategory::class);
     }
+    public function countByrestaurantCategory($restaurantCategory)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('COUNT(r.idRestaurant)')
+            ->join('r.restaurantCategory', 'c')
+            ->where('c.categoryName = :restaurantCategory')
+            ->setParameter('restaurantCategory', $restaurantCategory)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return RestaurantCategory[] Returns an array of RestaurantCategory objects

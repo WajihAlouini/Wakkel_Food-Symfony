@@ -21,6 +21,46 @@ class PlatRepository extends ServiceEntityRepository
         parent::__construct($registry, Plat::class);
     }
 
+   /* public function findByRestaurant(int $id_restaurant): array
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p.nomPlat', 'p.prix', 'p.ingredient', 'p.platImage')
+            ->join('p.restaurant', 'r')
+            ->andWhere('r.idRestaurant = :restaurantId')
+            ->setParameter('restaurantId', $id_restaurant)
+            ->getQuery()
+            ->getResult();
+    }
+*/
+    public function findByRestaurant(int $id_restaurant): array
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p.idPlat', 'p.nomPlat', 'p.prix', 'p.ingredient', 'p.platImage') // Ajout de idPlat
+            ->join('p.restaurant', 'r')
+            ->andWhere('r.idRestaurant = :restaurantId')
+            ->setParameter('restaurantId', $id_restaurant)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findEntitiesByString($str)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.nomPlat LIKE :str')
+            ->setParameter('str', '%' . $str . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
+    // PlatRepository.php
+
+    public function findUniquePlats(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->groupBy('p.idPlat')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Plat[] Returns an array of Plat objects
 //     */
@@ -45,4 +85,34 @@ class PlatRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    public function getPlatStatsByCategory(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->select('rc.idCategory AS categoryId', 'rc.categoryName AS categoryName', 'COUNT(p.idPlat) AS platCount')
+            ->leftJoin('p.restaurant', 'r')
+            ->leftJoin('r.restaurantCategory', 'rc')
+            ->groupBy('rc.idCategory')
+            ->getQuery()
+            ->getResult();
+
+
+    }
+
+
+    public function findAllSorted(): array
+    {
+        $queryBuilder = $this->createQueryBuilder('cl')
+            ->orderBy('cl.prix', 'ASC');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+    public function findAllSorted1(): array
+    {
+        $queryBuilder = $this->createQueryBuilder('cl')
+            ->orderBy('cl.prix', 'DESC');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

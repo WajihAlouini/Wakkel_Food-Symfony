@@ -29,6 +29,15 @@ class RestaurantRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findBySearchQuery(string $query): array
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.nomRestaurant LIKE :query')
+            ->orWhere('r.adresseRestaurant LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->getQuery()
+            ->getResult();
+    }
 
 
 
@@ -57,4 +66,17 @@ class RestaurantRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function countByrestaurantCategory($categoryName)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('COUNT(r.idRestaurant)')
+            ->join('r.restaurantCategory', 'c')
+            ->andWhere('c.categoryName = :categoryName')
+            ->setParameter('categoryName', $categoryName)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+
 }

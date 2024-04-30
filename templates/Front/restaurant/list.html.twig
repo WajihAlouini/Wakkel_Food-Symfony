@@ -15,12 +15,16 @@
     <div class="box-container">
         {% for restaurant in restaurants %}
             <div class="box">
-                <h3>{{ restaurant.nomRestaurant }}</h3>
+                <a href="{{ path('restaurant_plats', {'id': restaurant.idRestaurant}) }}"> <!-- Make sure to pass the restaurant's ID -->
+                    <h3>{{ restaurant.nomRestaurant }}</h3>
+                </a>
                 <img src="{{ asset('uploads/' ~ restaurant.restaurantImage) }}" alt="{{ restaurant.nomRestaurant }} Image">
                 <p>Adresse: {{ restaurant.adresseRestaurant }}</p>
             </div>
         {% endfor %}
+
     </div>
+
 
     <!-- CSS styles -->
     <style>

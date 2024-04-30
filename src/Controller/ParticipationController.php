@@ -11,26 +11,26 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
-use App\Service\SmsSender;
+//use App\Service\SmsSender;
 use Symfony\Component\Notifier\Texter\TexterInterface;
-use Symfony\Component\Notifier\Message\SmsMessage;
-use Symfony\Component\Notifier\Recipient\PhoneRecipient;
+//use Symfony\Component\Notifier\Message\SmsMessage;
+//use Symfony\Component\Notifier\Recipient\PhoneRecipient;
 
 #[Route('/participation')]
 class ParticipationController extends AbstractController
 {
     private $entityManager;
     private $mailer;
-    private $smsSender;
+   // private $smsSender;
 
    
 
     
-    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer,SmsSender $smsSender)
+    public function __construct(EntityManagerInterface $entityManager, MailerInterface $mailer)//,SmsSender $smsSender)
     {
         $this->entityManager = $entityManager;
         $this->mailer = $mailer;
-        $this->smsSender = $smsSender;
+      //  $this->smsSender = $smsSender;
 
     }
     #[Route('/', name: 'app_participation_index', methods: ['GET'])]
@@ -62,7 +62,7 @@ class ParticipationController extends AbstractController
 
             // Add a success flash message
             $this->addFlash('success', 'Participation saved successfully! Check your mail to see further information about your participation. ');
-            $this->smsSender->sendSms('+21628591509', 'Un nouveau partcipant a été ajouté à notre site web.');
+           // $this->smsSender->sendSms('+21628591509', 'Un nouveau partcipant a été ajouté à notre site web.');
             return $this->redirectToRoute('app_participation_new');
         }
 

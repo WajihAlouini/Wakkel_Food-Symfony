@@ -1,0 +1,28 @@
+{# confirmation.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation Confirmation</title>
+</head>
+<body>
+    <h1>Confirmation of Participation</h1>
+   
+    
+    <p>Thank you for your participation. Here are the details of your participation:</p>
+    
+    <ul>
+        <li><strong>Event Name:</strong> {{ participation.getIdEvent().getEventName() }}</li>
+        <li><strong><p>Start Date: {{ participation.getIdEvent().DateDebut|date('Y-m-d H:i:s') }}</p>
+        <li><strong><p>End Date: {{ participation.getIdEvent().DateFin|date('Y-m-d H:i:s') }}</p>
+       
+    </ul>
+    
+    <p>We look forward to seeing you at the event!</p>
+    
+    <p>Best regards,<br>
+    Your Organization</p>
+</body>
+</html>

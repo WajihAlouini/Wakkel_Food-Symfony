@@ -1,0 +1,79 @@
+{% include "navbar.html.twig" %}
+
+{% block title %}Event Details{% endblock %}
+
+{% block body %}
+<style>
+    /* Styles for modal-like appearance */
+    .modal {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .modal-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+    .qr-code {
+    width: 150px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    }
+    .table th {
+        width: 30%;
+    }
+</style>
+
+
+<div class="modal">
+    <div class="modal-header">
+        <h1 class="my-4">Event Details</h1>
+    </div>
+
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">IdEvent</th>
+                            <td>{{ evenement.idEvent }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Event Name</th>
+                            <td>{{ evenement.eventName }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Start Date</th>
+                            <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">End Date</th>
+                            <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h4 class="text-center mb-3">QR Code</h4>
+                        <div class="text-center">
+    <img src="{{ qrImage }}" alt="QR Code de l'evenement {{ evenement.getIdEvent() }}" class="img-fluid product-image qr-code">
+</div>
+
+    </div>
+</div>
+
+{% endblock %}
+

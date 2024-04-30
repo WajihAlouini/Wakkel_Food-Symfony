@@ -1,39 +1,41 @@
-{% extends 'base.html.twig' %}
+{% extends 'back&front/back.html.twig' %}
 
-{% block title %}Participation index{% endblock %}
+{% block title %}Participation Index{% endblock %}
 
 {% block body %}
-    <h1>Participation index</h1>
+    <h1>Participation Index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>IdP</th>
-                <th>IdUser</th>
-                <th>NbrPlace</th>
-                <th>Email</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for participation in participations %}
-            <tr>
-                <td>{{ participation.getIdP() }}</td>
-                <td>{{ participation.idUser }}</td>
-                <td>{{ participation.nbrPlace }}</td>
-                <td>{{ participation.getEmailUser() }}</td>
-                <td>
-                    <a href="{{ path('app_participation_show', {'idP': participation.getIdP()}) }}">show</a>
-                    <a href="{{ path('app_participation_edit', {'idP': participation.getIdP()}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Participation ID</th>
+                    <th>User ID</th>
+                    <th>Number of Places</th>
+                    <th>User Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for participation in participations %}
+                <tr>
+                    <td>{{ participation.getIdP() }}</td>
+                    <td>{{ participation.idUser }}</td>
+                    <td>{{ participation.nbrPlace }}</td>
+                    <td>{{ participation.getEmailUser() }}</td>
+                    <td>
+                        <a href="{{ path('app_participation_show', {'idP': participation.getIdP()}) }}" class="btn btn-info btn-sm">Show</a>
+                        <a href="{{ path('app_participation_edit', {'idP': participation.getIdP()}) }}" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('app_participation_new') }}">Create new</a>
+    <a href="{{ path('app_participation_new') }}" class="btn btn-success">Create New</a>
 {% endblock %}

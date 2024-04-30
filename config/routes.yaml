@@ -1,3 +1,19 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+app_participation_show:
+    path: /show/{idP}
+    controller: App\Controller\ParticipationController::show
+app_front:
+    path: /front
+    controller: App\Controller\ParticipationController::front
+app_back:
+    path: /back
+    controller: App\Controller\EvenementController::back
+app_evenement_frontindex:
+    path: /frontindex
+    controller: App\Controller\EvenementController::frontindex
+    methods: ['GET']
+app_evenement_showfront:
+    path: /showfront/{idEvent}
+    controller: App\Controller\EvenementController::showfront

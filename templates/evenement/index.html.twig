@@ -1,40 +1,51 @@
-{% extends 'base.html.twig' %}
+{% extends 'back&front/back.html.twig' %}
 
-
-{% block title %}Evenement index{% endblock %}
+{% block title %}Evenement Index{% endblock %}
 
 {% block body %}
-    <h1>Evenement index</h1>
+<div class="container">
+    <h1 class="my-4">Evenement Index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>IdEvent</th>
-                <th>EventName</th>
-                <th>DateDebut</th>
-                <th>DateFin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for evenement in evenements %}
-            <tr>
-                <td>{{ evenement.idEvent }}</td>
-                <td>{{ evenement.eventName }}</td>
-                <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
-                <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_evenement_show', {'idEvent': evenement.idEvent}) }}">show</a>
-                    <a href="{{ path('app_evenement_edit', {'idEvent': evenement.idEvent}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {# Search Form #}
+    <form action="{{ path('app_evenement_index') }}" method="get" class="mb-3">
+        <div class="input-group">
+            <input type="text" class="form-control" name="eventName" placeholder="Search by Event Name" aria-label="Search" value="{{ app.request.query.get('eventName') }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
 
-    <a href="{{ path('app_evenement_new') }}">Create new</a>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for evenement in evenements %}
+                <tr>
+                    <td>{{ evenement.idEvent }}</td>
+                    <td>{{ evenement.eventName }}</td>
+                    <td>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</td>
+                    <td>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</td>
+                    <td>
+                        <a href="{{ path('app_evenement_show', {'idEvent': evenement.idEvent}) }}" class="btn btn-sm btn-info me-2">Show</a>
+                        <a href="{{ path('app_evenement_edit', {'idEvent': evenement.idEvent}) }}" class="btn btn-sm btn-primary">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('app_evenement_new') }}" class="btn btn-primary mt-3">Create New</a>
+</div>
 {% endblock %}

@@ -1,10 +1,100 @@
+{% include "navbar.html.twig" %}
 
-{% block title %}New Participation{% endblock %}
+<style>
+    body {
+        font-size: 18px;
+    }
 
-{% block body %}
-    <h1>Create new Participation</h1>
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-    {{ include('participation/_form.html.twig') }}
+    .event-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-    <a href="{{ path('app_participation_index') }}">back to list</a>
-{% endblock %}
+    .event-body {
+        padding: 40px;
+        background-color: #f2f2f2;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .form-container {
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    .back-link {
+        text-align: center;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    /* Styling for flash messages */
+    .flash-message {
+        margin-bottom: 40px;
+        padding: 30px;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .flash-success {
+        background-color: #dff0d8;
+        color: #3c763d;
+    }
+
+    .flash-error {
+        background-color: #f2dede;
+        color: #a94442;
+    }
+
+    .flash-info {
+        background-color: #d9edf7;
+        color: #31708f;
+    }
+</style>
+
+<div class="container">
+    <div class="event-header">
+        <h1 style="font-size: 36px;">New Participation</h1>
+    </div>
+
+    <div class="event-body">
+        {# Display flash messages here #}
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-message flash-{{ type }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {# Display the form #}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="form-container mb-4">
+                        {% include('participation/_form.html.twig') %}
+                    </div>
+                    <div class="back-link">
+                        <a href="{{ path('app_evenement_frontindex') }}" style="font-size: 22px;">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html.twig" %}

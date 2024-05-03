@@ -1,0 +1,7 @@
+knp_paginator:
+    page_range: 5                      # Number of pages displayed in the pagination menu (e.g. First, Previous, 1, 2, Next, Last)
+    default_options:
+        page_name: page                # Name of the GET parameter used for page number
+        sort_field_name: sort          # Name of the GET parameter used for sorting field
+        sort_direction_name: direction # Name of the GET parameter used for sorting direction
+        distinct: true

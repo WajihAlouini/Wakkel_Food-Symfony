@@ -20,6 +20,7 @@ use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Label\Font\NotoSans;
 use BaconQrCode\Renderer\ImageRenderer;
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 #[Route('/evenement')]
@@ -33,16 +34,24 @@ class EvenementController extends AbstractController
         $this->entityManager = $entityManager;
     }
     #[Route('/', name: 'app_evenement_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, PaginatorInterface $paginator, Request $request): Response
     {
-        $evenements = $entityManager
+        $query = $entityManager
             ->getRepository(Evenement::class)
-            ->findAll();
+            ->createQueryBuilder('e')
+            ->getQuery();
+
+        $pagination = $paginator->paginate(
+            $query,
+            $request->query->getInt('page', 1),
+            8
+        );
 
         return $this->render('evenement/index.html.twig', [
-            'evenements' => $evenements,
+            'pagination' => $pagination,
         ]);
     }
+
     #[Route('/frontindex', name: 'app_evenement_frontindex', methods: ['GET'])]
 public function frontindex(Request $request, EntityManagerInterface $entityManager): Response
 {

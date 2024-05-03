@@ -26,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for evenement in evenements %}
+            {% for evenement in pagination %}
                 <tr>
                     <td>{{ evenement.idEvent }}</td>
                     <td>{{ evenement.eventName }}</td>
@@ -47,5 +47,7 @@
     </div>
 
     <a href="{{ path('app_evenement_new') }}" class="btn btn-primary mt-3">Create New</a>
+    {# Display pagination links #}
+    {{ knp_pagination_render(pagination) }}
 </div>
 {% endblock %}

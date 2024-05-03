@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CPlat
+
+return [PHP_INT_MAX, []];

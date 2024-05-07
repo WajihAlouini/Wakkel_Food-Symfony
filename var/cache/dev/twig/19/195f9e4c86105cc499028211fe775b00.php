@@ -204,10 +204,6 @@ class __TwigTemplate_85333fada6d24e6b00397f343378d856 extends Template
             <div class=\"text-center mt-3\">
                 <a href=\"";
         // line 67
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_commande_new");
-        yield "\" class=\"btn btn-primary\">Créer commande</a>
-                <a href=\"";
-        // line 68
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_statistics");
         yield "\" class=\"btn btn-primary\">Statistiques</a>
             </div>
@@ -250,7 +246,7 @@ class __TwigTemplate_85333fada6d24e6b00397f343378d856 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  211 => 68,  207 => 67,  201 => 63,  195 => 59,  189 => 56,  186 => 55,  180 => 50,  170 => 46,  166 => 45,  161 => 43,  157 => 42,  153 => 41,  150 => 40,  146 => 39,  137 => 33,  133 => 32,  127 => 29,  123 => 28,  117 => 25,  113 => 24,  106 => 19,  104 => 18,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
+        return array (  207 => 67,  201 => 63,  195 => 59,  189 => 56,  186 => 55,  180 => 50,  170 => 46,  166 => 45,  161 => 43,  157 => 42,  153 => 41,  150 => 40,  146 => 39,  137 => 33,  133 => 32,  127 => 29,  123 => 28,  117 => 25,  113 => 24,  106 => 19,  104 => 18,  90 => 6,  80 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -321,7 +317,6 @@ class __TwigTemplate_85333fada6d24e6b00397f343378d856 extends Template
             </div>
 
             <div class=\"text-center mt-3\">
-                <a href=\"{{ path('app_commande_new') }}\" class=\"btn btn-primary\">Créer commande</a>
                 <a href=\"{{ path('app_statistics') }}\" class=\"btn btn-primary\">Statistiques</a>
             </div>
         </div>

@@ -56,10 +56,6 @@ class __TwigTemplate_326eec7e372b7aa5e270631275946b28 extends Template
         yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 4, $this->source); })()), 'form_end');
         yield "
 
-<button type=\"submit\" style=\"background-color: blue; color: white;\">";
-        // line 6
-        yield Twig\Extension\EscaperExtension::escape($this->env, ((array_key_exists("button_label", $context)) ? (Twig\Extension\CoreExtension::defaultFilter((isset($context["button_label"]) || array_key_exists("button_label", $context) ? $context["button_label"] : (function () { throw new RuntimeError('Variable "button_label" does not exist.', 6, $this->source); })()), "Submit")) : ("Submit")), "html", null, true);
-        yield "</button>
 ";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -91,7 +87,7 @@ class __TwigTemplate_326eec7e372b7aa5e270631275946b28 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  61 => 6,  56 => 4,  52 => 3,  48 => 2,  44 => 1,);
+        return array (  56 => 4,  52 => 3,  48 => 2,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -101,7 +97,6 @@ class __TwigTemplate_326eec7e372b7aa5e270631275946b28 extends Template
     <button type=\"submit\" class=\"btn btn-primary\">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 
-<button type=\"submit\" style=\"background-color: blue; color: white;\">{{ button_label|default('Submit') }}</button>
 ", "commande/_form.html.twig", "C:\\Users\\mhamd\\Downloads\\Wakkel_Food-Symfony-Gestion_Resto\\Wakkel_Food-Symfony-Gestion_Resto\\templates\\commande\\_form.html.twig");
     }
 }

@@ -77,15 +77,15 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         ";
         // line 285
         yield from $this->unwrap()->yieldBlock('sidebar', $context, $blocks);
-        // line 472
+        // line 350
         yield "        ";
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 477
+        // line 355
         yield "
     ";
-        // line 478
+        // line 356
         yield from $this->unwrap()->yieldBlock('footer', $context, $blocks);
-        // line 493
+        // line 371
         yield "    <script>
         // Fonction de recherche automatique avancée
         function rechercherAvancee() {
@@ -284,7 +284,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
                 <div class=\"d-flex align-items-center justify-content-between\">
                     <a href=\"index.html\" class=\"logo d-flex align-items-center\">
                         <img src=\"assets/img/logo.png\" alt=\"\">
-                        <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                        <span class=\"d-none d-lg-block\">Wakkel_Food</span>
                     </a>
                     <i class=\"bi bi-list toggle-sidebar-btn\"></i>
                 </div><!-- End Logo -->
@@ -549,12 +549,39 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
 
                 <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link \" href=\"index.html\">
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"";
+        // line 292
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_commande_index");
+        yield "\">
                             <i class=\"bi bi-grid\"></i>
                             <span>Gestion des commandes</span>
                         </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des reclamations</span>
+                        </a>
                     </li><!-- End Dashboard Nav -->
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des evenements</span>
+                        </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des restaurations</span>
+                        </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span> user</span>
+                        </a>
+                    </li>
 
     <a class=\"nav-link collapsed\" data-bs-target=\"#restaurants-nav\" data-bs-toggle=\"collapse\" href=\"#\">
         <i class=\"bi bi-menu-button-wide\"></i><span>List</span><i class=\"bi bi-chevron-down ms-auto\"></i>
@@ -562,7 +589,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
     <ul id=\"restaurants-nav\" class=\"nav-content collapse\" data-bs-parent=\"#sidebar-nav\">
         <li>
             <a href=\"";
-        // line 303
+        // line 327
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_plat_index");
         yield "\">
                 <i class=\"bi bi-circle\"></i><span>Plats</span>
@@ -570,7 +597,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         </li>
         <li>
             <a href=\"";
-        // line 308
+        // line 332
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_restaurant_category_index");
         yield "\">
                 <i class=\"bi bi-circle\"></i><span>Category</span>
@@ -578,7 +605,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         </li>
         <li>
             <a href=\"";
-        // line 313
+        // line 337
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_restaurant_index");
         yield "\">
                 <i class=\"bi bi-circle\"></i><span>Restaurant</span>
@@ -587,153 +614,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
     </ul>
 </li><!-- End Components Nav -->
 
-
-
-
-                    </li><!-- End Components Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-journal-text\"></i><span>Gestion des utilisateurs</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"forms-elements.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Elements</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-layouts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-editors.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-validation.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Forms Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"tables-general.html\">
-                                    <i class=\"bi bi-circle\"></i><span>General Tables</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"tables-data.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Data Tables</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Tables Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-bar-chart\"></i><span>Charts</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"charts-chartjs.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Chart.js</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"charts-apexcharts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>ApexCharts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"charts-echarts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>ECharts</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Charts Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"icons-bootstrap.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"icons-remix.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"icons-boxicons.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Icons Nav -->
-
-                    <li class=\"nav-heading\">Pages</li>
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
-                            <i class=\"bi bi-person\"></i>
-                            <span>Profile</span>
-                        </a>
-                    </li><!-- End Profile Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
-                            <i class=\"bi bi-question-circle\"></i>
-                            <span>F.A.Q</span>
-                        </a>
-                    </li><!-- End F.A.Q Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-contact.html\">
-                            <i class=\"bi bi-envelope\"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li><!-- End Contact Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-register.html\">
-                            <i class=\"bi bi-card-list\"></i>
-                            <span>Register</span>
-                        </a>
-                    </li><!-- End Register Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-login.html\">
-                            <i class=\"bi bi-box-arrow-in-right\"></i>
-                            <span>Login</span>
-                        </a>
-                    </li><!-- End Login Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-                            <i class=\"bi bi-dash-circle\"></i>
-                            <span>Error 404</span>
-                        </a>
-                    </li><!-- End Error 404 Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-                            <i class=\"bi bi-file-earmark\"></i>
-                            <span>Blank</span>
-                        </a>
-                    </li><!-- End Blank Page Nav -->
+                    
 
                 </ul>
 
@@ -748,7 +629,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         return; yield '';
     }
 
-    // line 472
+    // line 350
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -758,7 +639,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 473
+        // line 351
         yield "
 
 
@@ -772,7 +653,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         return; yield '';
     }
 
-    // line 478
+    // line 356
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -782,18 +663,18 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 479
+        // line 357
         yield "        <!-- ======= Footer ======= -->
         <footer id=\"footer\" class=\"footer\">
             <div class=\"copyright\">
-                &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Wakkel_Food</span></strong>. All Rights Reserved
             </div>
             <div class=\"credits\">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
+                Designed by <a href=\"https://bootstrapmade.com/\">Saiid Mhamdi</a>
             </div>
         </footer><!-- End Footer -->
     ";
@@ -819,7 +700,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  786 => 479,  776 => 478,  762 => 473,  752 => 472,  582 => 313,  574 => 308,  566 => 303,  547 => 286,  537 => 285,  475 => 232,  470 => 230,  467 => 229,  465 => 228,  281 => 46,  271 => 45,  259 => 41,  253 => 38,  249 => 37,  245 => 36,  241 => 35,  237 => 34,  233 => 33,  229 => 32,  225 => 31,  221 => 29,  211 => 28,  198 => 25,  192 => 22,  188 => 21,  184 => 20,  180 => 19,  176 => 18,  172 => 17,  168 => 16,  159 => 9,  149 => 8,  129 => 5,  89 => 493,  87 => 478,  84 => 477,  81 => 472,  79 => 285,  76 => 284,  74 => 45,  69 => 42,  67 => 28,  64 => 27,  61 => 8,  57 => 5,  51 => 1,);
+        return array (  667 => 357,  657 => 356,  643 => 351,  633 => 350,  609 => 337,  601 => 332,  593 => 327,  555 => 292,  547 => 286,  537 => 285,  475 => 232,  470 => 230,  467 => 229,  465 => 228,  281 => 46,  271 => 45,  259 => 41,  253 => 38,  249 => 37,  245 => 36,  241 => 35,  237 => 34,  233 => 33,  229 => 32,  225 => 31,  221 => 29,  211 => 28,  198 => 25,  192 => 22,  188 => 21,  184 => 20,  180 => 19,  176 => 18,  172 => 17,  168 => 16,  159 => 9,  149 => 8,  129 => 5,  89 => 371,  87 => 356,  84 => 355,  81 => 350,  79 => 285,  76 => 284,  74 => 45,  69 => 42,  67 => 28,  64 => 27,  61 => 8,  57 => 5,  51 => 1,);
     }
 
     public function getSourceContext()
@@ -875,7 +756,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
                 <div class=\"d-flex align-items-center justify-content-between\">
                     <a href=\"index.html\" class=\"logo d-flex align-items-center\">
                         <img src=\"assets/img/logo.png\" alt=\"\">
-                        <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                        <span class=\"d-none d-lg-block\">Wakkel_Food</span>
                     </a>
                     <i class=\"bi bi-list toggle-sidebar-btn\"></i>
                 </div><!-- End Logo -->
@@ -1114,12 +995,36 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
 
                 <ul class=\"sidebar-nav\" id=\"sidebar-nav\">
 
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link \" href=\"index.html\">
+                    <li class=\"nav-item active\">
+                        <a class=\"nav-link\" href=\"{{ path('app_commande_index') }}\">
                             <i class=\"bi bi-grid\"></i>
                             <span>Gestion des commandes</span>
                         </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des reclamations</span>
+                        </a>
                     </li><!-- End Dashboard Nav -->
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des evenements</span>
+                        </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span>Gestion des restaurations</span>
+                        </a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link \" href=\"index.html\">
+                            <i class=\"bi bi-grid\"></i>
+                            <span> user</span>
+                        </a>
+                    </li>
 
     <a class=\"nav-link collapsed\" data-bs-target=\"#restaurants-nav\" data-bs-toggle=\"collapse\" href=\"#\">
         <i class=\"bi bi-menu-button-wide\"></i><span>List</span><i class=\"bi bi-chevron-down ms-auto\"></i>
@@ -1143,153 +1048,7 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
     </ul>
 </li><!-- End Components Nav -->
 
-
-
-
-                    </li><!-- End Components Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-journal-text\"></i><span>Gestion des utilisateurs</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"forms-elements.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Elements</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-layouts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-editors.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Editors</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"forms-validation.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Form Validation</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Forms Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#tables-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-layout-text-window-reverse\"></i><span>Tables</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"tables-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"tables-general.html\">
-                                    <i class=\"bi bi-circle\"></i><span>General Tables</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"tables-data.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Data Tables</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Tables Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#charts-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-bar-chart\"></i><span>Charts</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"charts-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"charts-chartjs.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Chart.js</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"charts-apexcharts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>ApexCharts</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"charts-echarts.html\">
-                                    <i class=\"bi bi-circle\"></i><span>ECharts</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Charts Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" data-bs-target=\"#icons-nav\" data-bs-toggle=\"collapse\" href=\"#\">
-                            <i class=\"bi bi-gem\"></i><span>Icons</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                        </a>
-                        <ul id=\"icons-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                            <li>
-                                <a href=\"icons-bootstrap.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Bootstrap Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"icons-remix.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Remix Icons</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href=\"icons-boxicons.html\">
-                                    <i class=\"bi bi-circle\"></i><span>Boxicons</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li><!-- End Icons Nav -->
-
-                    <li class=\"nav-heading\">Pages</li>
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"users-profile.html\">
-                            <i class=\"bi bi-person\"></i>
-                            <span>Profile</span>
-                        </a>
-                    </li><!-- End Profile Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-faq.html\">
-                            <i class=\"bi bi-question-circle\"></i>
-                            <span>F.A.Q</span>
-                        </a>
-                    </li><!-- End F.A.Q Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-contact.html\">
-                            <i class=\"bi bi-envelope\"></i>
-                            <span>Contact</span>
-                        </a>
-                    </li><!-- End Contact Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-register.html\">
-                            <i class=\"bi bi-card-list\"></i>
-                            <span>Register</span>
-                        </a>
-                    </li><!-- End Register Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-login.html\">
-                            <i class=\"bi bi-box-arrow-in-right\"></i>
-                            <span>Login</span>
-                        </a>
-                    </li><!-- End Login Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-error-404.html\">
-                            <i class=\"bi bi-dash-circle\"></i>
-                            <span>Error 404</span>
-                        </a>
-                    </li><!-- End Error 404 Page Nav -->
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link collapsed\" href=\"pages-blank.html\">
-                            <i class=\"bi bi-file-earmark\"></i>
-                            <span>Blank</span>
-                        </a>
-                    </li><!-- End Blank Page Nav -->
+                    
 
                 </ul>
 
@@ -1305,14 +1064,14 @@ class __TwigTemplate_a2b81f96e39a1c4a6d102874b684b769 extends Template
         <!-- ======= Footer ======= -->
         <footer id=\"footer\" class=\"footer\">
             <div class=\"copyright\">
-                &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Wakkel_Food</span></strong>. All Rights Reserved
             </div>
             <div class=\"credits\">
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href=\"https://bootstrapmade.com/\">BootstrapMade</a>
+                Designed by <a href=\"https://bootstrapmade.com/\">Saiid Mhamdi</a>
             </div>
         </footer><!-- End Footer -->
     {% endblock %}

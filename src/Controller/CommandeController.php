@@ -15,10 +15,42 @@ use Dompdf\Dompdf;
 
 
 
-#[Route('/commande')]
 class CommandeController extends AbstractController
+{   
+    #[Route('/front', name: 'front')]
+public function front(): Response
 {
-    #[Route('/', name: 'app_commande_index', methods: ['GET'])]
+    return $this->render('commande/front/index.html.twig');
+}
+
+#[Route('/frontcommande', name: 'app_commande_front', methods: ['GET'])]
+public function frontcommande(CommandeRepository $commandeRepository, PaginatorInterface $paginator, Request $request): Response
+{   
+    // Récupérer les paramètres de tri depuis la requête
+    $orderBy = $request->query->get('orderBy', 'idCommande');
+    $orderDirection = $request->query->get('orderDirection', 'asc');
+
+    // Construire la requête de récupération des commandes
+    $query = $commandeRepository->createQueryBuilder('c')
+        ->orderBy("c.$orderBy", $orderDirection)
+        ->getQuery();
+
+    // Paginer les résultats
+    $pagination = $paginator->paginate(
+        $query,
+        $request->query->getInt('page', 1),
+        4
+    );
+
+    // Récupérer les commandes pour calculer les statistiques
+    $commandes = $pagination->getItems();
+
+    return $this->render('commande/front/frontcommande.html.twig', [
+        'pagination' => $pagination,
+    ]);
+}
+
+    #[Route('/commande', name: 'app_commande_index', methods: ['GET'])]
 public function index(CommandeRepository $commandeRepository, PaginatorInterface $paginator, Request $request): Response
 {   
     // Récupérer les paramètres de tri depuis la requête
@@ -78,10 +110,10 @@ public function statistics(CommandeRepository $commandeRepository): Response
             $entityManager->persist($commande);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_commande_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_commande_front', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('commande/new.html.twig', [
+        return $this->renderForm('commande/front/base.html.twig', [
             'commande' => $commande,
             'form' => $form,
         ]);
@@ -91,6 +123,14 @@ public function statistics(CommandeRepository $commandeRepository): Response
     public function show(Commande $commande): Response
     {
         return $this->render('commande/show.html.twig', [
+            'commande' => $commande,
+        ]);
+    }
+
+    #[Route('/showfront/{idCommande}', name: 'app_commande_showfront', methods: ['GET'])]
+    public function showfront(Commande $commande): Response
+    {
+        return $this->render('commande/front/show.html.twig', [
             'commande' => $commande,
         ]);
     }

@@ -7039,15 +7039,17 @@
         <argument key="restaurant" type="service_closure" id=".errored..service_locator.Hc8H.Su.App\Entity\Restaurant"/>
       </argument>
     </service>
-    <service id=".service_locator.XswnqQW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.g_HCiw8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\CommandeController::delete" type="service_closure" id=".service_locator.GZ8iKbh"/>
         <argument key="App\Controller\CommandeController::edit" type="service_closure" id=".service_locator.GZ8iKbh"/>
+        <argument key="App\Controller\CommandeController::frontcommande" type="service_closure" id=".service_locator.qgJXkGh"/>
         <argument key="App\Controller\CommandeController::generateCommandePdf" type="service_closure" id=".service_locator.ttJxBw."/>
         <argument key="App\Controller\CommandeController::index" type="service_closure" id=".service_locator.qgJXkGh"/>
         <argument key="App\Controller\CommandeController::new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\CommandeController::show" type="service_closure" id=".service_locator.ttJxBw."/>
+        <argument key="App\Controller\CommandeController::showfront" type="service_closure" id=".service_locator.ttJxBw."/>
         <argument key="App\Controller\CommandeController::statistics" type="service_closure" id=".service_locator.H2oo9Vd"/>
         <argument key="App\Controller\PlatController::delete" type="service_closure" id=".service_locator.VQtysSJ"/>
         <argument key="App\Controller\PlatController::edit" type="service_closure" id=".service_locator.VQtysSJ"/>
@@ -7068,10 +7070,12 @@
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Controller\CommandeController:delete" type="service_closure" id=".service_locator.GZ8iKbh"/>
         <argument key="App\Controller\CommandeController:edit" type="service_closure" id=".service_locator.GZ8iKbh"/>
+        <argument key="App\Controller\CommandeController:frontcommande" type="service_closure" id=".service_locator.qgJXkGh"/>
         <argument key="App\Controller\CommandeController:generateCommandePdf" type="service_closure" id=".service_locator.ttJxBw."/>
         <argument key="App\Controller\CommandeController:index" type="service_closure" id=".service_locator.qgJXkGh"/>
         <argument key="App\Controller\CommandeController:new" type="service_closure" id=".service_locator.aKM6MDa"/>
         <argument key="App\Controller\CommandeController:show" type="service_closure" id=".service_locator.ttJxBw."/>
+        <argument key="App\Controller\CommandeController:showfront" type="service_closure" id=".service_locator.ttJxBw."/>
         <argument key="App\Controller\CommandeController:statistics" type="service_closure" id=".service_locator.H2oo9Vd"/>
         <argument key="App\Controller\PlatController:delete" type="service_closure" id=".service_locator.VQtysSJ"/>
         <argument key="App\Controller\PlatController:edit" type="service_closure" id=".service_locator.VQtysSJ"/>
@@ -7756,12 +7760,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.XswnqQW"/>
+      <argument type="service" id=".service_locator.g_HCiw8"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.XswnqQW"/>
+      <argument type="service" id=".service_locator.g_HCiw8"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8836,7 +8840,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.XswnqQW"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.g_HCiw8"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -8864,7 +8868,7 @@
     <service id=".service_locator.i2deJr9" alias=".service_locator.VQtysSJ"/>
     <service id=".service_locator.1Ay_24A" alias=".service_locator.DN2cqWN"/>
     <service id=".service_locator.x5KhAKF" alias=".service_locator.Hc8H.Su"/>
-    <service id=".service_locator.3rDL.f3" alias=".service_locator.XswnqQW"/>
+    <service id=".service_locator.cJsSbOE" alias=".service_locator.g_HCiw8"/>
     <service id=".service_locator.QHfoeZH" alias=".service_locator.898RJ1F"/>
     <service id=".service_locator.aGvqOUZ" alias=".service_locator.JgYf0VL"/>
     <service id=".service_locator.A4k6Zds" alias=".service_locator.YXH_UHb"/>
